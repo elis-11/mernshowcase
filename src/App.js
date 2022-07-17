@@ -1,4 +1,3 @@
-import dotenv from "dotenv";
 import { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
@@ -12,8 +11,7 @@ import AppContext from "./AppContext";
 import FadeIn from "react-fade-in";
 import "./App.scss";
 
-dotenv.config();
-const backend_env = process.env.REACT_APP_BACKEND_URL;
+const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   // const { setCurrentUser, currentUser, userInGroup } =  useContext(AppContext);
@@ -25,7 +23,7 @@ function App() {
         method: "GET",
         credentials: "include",
       };
-      const URL = await fetch(`${backend_env}/currentuser`,
+      const URL = await fetch(`${API_URL}/currentuser`,
         requestOptions
       );
       if (URL.ok) {
