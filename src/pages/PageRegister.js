@@ -117,7 +117,7 @@ const PageRegister = () => {
       }),
     };
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/createuser`,
+      `${process.env.REACT_APP_BACKEND_URL}/signup`,
       requestOptions
     );
     if (response.ok) {
