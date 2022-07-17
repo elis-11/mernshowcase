@@ -12,24 +12,22 @@ const PageRegister = () => {
   const [userNameRegister, setUserNameRegister] = useState("");
   const [firstNameRegister, setFirstNameRegister] = useState("");
   const [secondNameRegister, setSecondNameRegister] = useState("");
-  const [emailRegister1, setEmailRegister1] = useState("");
-  const [emailRegister2, setEmailRegister2] = useState("");
+  const [emailRegister, setEmailRegister] = useState("");
   const [passwordRegister1, setPasswordRegister1] = useState("");
   const [passwordRegister2, setPasswordRegister2] = useState("");
 
-  const [email1IsValid, setEmail1IsValid] = useState(false);
+  // const [emailIsValid, setEmailIsValid] = useState(false);
   const [userNameIsValid, setUserNameIsValid] = useState(false);
   const [firstNameIsValid, setFirstNameIsValid] = useState(false);
   const [secondNameIsValid, setSecondNameIsValid] = useState(false);
-  const [email2IsValid, setEmail2IsValid] = useState(false);
+  const [emailIsValid, setEmailIsValid] = useState(false);
   const [password1IsValid, setPassword1IsValid] = useState(false);
   const [password2IsValid, setPassword2IsValid] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
     setFormIsValid(
-      email1IsValid &&
-        email2IsValid &&
+      emailIsValid &&
         userNameIsValid &&
         firstNameIsValid &&
         secondNameIsValid &&
@@ -41,8 +39,7 @@ const PageRegister = () => {
     userNameIsValid,
     firstNameIsValid,
     secondNameIsValid,
-    email1IsValid,
-    email2IsValid,
+    emailIsValid,
     password1IsValid,
     password2IsValid,
     passwordRegister1,
@@ -70,19 +67,19 @@ const PageRegister = () => {
     setSecondNameIsValid(userformat.test(_secondNameRegister));
   };
 
-  const handleEmailRegister1 = (e) => {
-    const _emailRegister1 = e.target.value;
+  const handleEmailRegister = (e) => {
+    const _emailRegister = e.target.value;
     const mailformat = /^[a-z0-9_.-]{2,}@[a-z.]{2,}\.[a-z]{2,}$/gi;
-    setEmailRegister1(_emailRegister1);
-    setEmail1IsValid(mailformat.test(_emailRegister1));
+    setEmailRegister(_emailRegister);
+    setEmailIsValid(mailformat.test(_emailRegister));
   };
 
-  const handleEmailRegister2 = (e) => {
-    const _emailRegister2 = e.target.value;
-    const mailformat = /^[a-z0-9_.-]{2,}@[a-z.]{2,}\.[a-z]{2,}$/gi;
-    setEmailRegister2(_emailRegister2);
-    (setEmail2IsValid(mailformat.test(_emailRegister2) && _emailRegister2 === emailRegister1));
-  };
+  // const handleEmailRegister2 = (e) => {
+  //   const _emailRegister2 = e.target.value;
+  //   const mailformat = /^[a-z0-9_.-]{2,}@[a-z.]{2,}\.[a-z]{2,}$/gi;
+  //   setEmailRegister2(_emailRegister2);
+  //   (setEmail2IsValid(mailformat.test(_emailRegister2) && _emailRegister2 === emailRegister1));
+  // };
 
   const handlePasswordRegister1 = (e) => {
     const _passwordRegister1 = e.target.value;
@@ -109,8 +106,8 @@ const PageRegister = () => {
           username: userNameRegister,
           firstName: firstNameRegister,
           lastName: secondNameRegister,
-          email1: emailRegister1,
-          email2: emailRegister2,
+          email: emailRegister,
+          // email2: emailRegister2,
           password1: passwordRegister1,
           password2: passwordRegister2,
         },
@@ -126,8 +123,8 @@ const PageRegister = () => {
       setUserNameRegister("");
       setFirstNameRegister("");
       setSecondNameRegister("");
-      setEmailRegister1("");
-      setEmailRegister2("");
+      setEmailRegister("");
+      // setEmailRegister2("");
       setPasswordRegister1("");
       setPasswordRegister2("");
       navigate("/");
@@ -163,16 +160,16 @@ const PageRegister = () => {
             />
 
             <EmailValidation
-              value={emailRegister1}
-              valueHandler={handleEmailRegister1}
-              isValid={email1IsValid}
+              value={emailRegister}
+              valueHandler={handleEmailRegister}
+              isValid={emailIsValid}
             />
 
-            <EmailValidation
+            {/* <EmailValidation
               value={emailRegister2}
               valueHandler={handleEmailRegister2}
               isValid={email2IsValid}
-            />
+            /> */}
 
             <PasswordDisplayer
               value={passwordRegister1}
