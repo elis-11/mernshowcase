@@ -78,7 +78,7 @@ const PageRegister = () => {
   //   const _emailRegister2 = e.target.value;
   //   const mailformat = /^[a-z0-9_.-]{2,}@[a-z.]{2,}\.[a-z]{2,}$/gi;
   //   setEmailRegister2(_emailRegister2);
-  //   (setEmail2IsValid(mailformat.test(_emailRegister2) && _emailRegister2 === emailRegister1));
+  //   (setEmail2IsValid(mailformat.test(_emailRegister2) && _emailRegister2 === ));
   // };
 
   const handlePasswordRegister1 = (e) => {

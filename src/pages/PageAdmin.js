@@ -78,7 +78,7 @@ const PageAdmin = () => {
 
   return (
     <div>
-      {currentUserIsInGroup("admins") && (
+      {currentUserIsInGroup("admin") && (
         <div className="panel">
           <h3>Content Editor Section:</h3>
           ShowAllUsers:
@@ -91,7 +91,7 @@ const PageAdmin = () => {
         </div>
       )}
 
-      {currentUserIsInGroup("admins") && (
+      {currentUserIsInGroup("admin") && (
         <div className="panel">
           <h3>Admin Section:</h3>
           <h4>{notYetApprovedUsers.length} Users to Approve</h4>

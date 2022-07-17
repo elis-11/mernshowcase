@@ -4,10 +4,10 @@ const EmailValidation = (props) => {
   return (
     <div>
       <div className={`row ${props.isValid ? "valid" : "invalid"}`}>
-        <label htmlFor="emailRegister1">Email</label>
+        <label htmlFor="emailRegister">Email</label>
         <input
           type="text"
-          id="emailregister1"
+          id="emailregister"
           value={props.value}
           onChange={props.valueHandler}
           placeholder="example@mail.com"

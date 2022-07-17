@@ -13,7 +13,7 @@ const PageWelcome = () => {
           <div className="panel">Welcome to this site.</div>
         )}
 
-        {currentUserIsInGroup("members") && (
+        {currentUserIsInGroup("member") && (
           <div className="panel">
             <h3>{currentUser.firstName} {currentUser.lastName},</h3>
             <p>

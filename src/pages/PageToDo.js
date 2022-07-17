@@ -89,6 +89,8 @@ const ToDo = () => {
               <input
                 type="text"
                 placeholder={todo.text + " Edit"}
+                // placeholder={todo.text}
+                // placeholder={"Edit" + todo.text}
                 onChange={(e) => setEditingText(e.target.value)}
               />
             ) : (
