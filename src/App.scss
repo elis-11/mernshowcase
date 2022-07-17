@@ -64,6 +64,8 @@ body {
         border: 4px solid #ccc;
         border-radius: 5px;
         padding: 50px;
+        margin: 3rem;
+        font-size: 1rem;
 
         .passwordIcon {
           color: rgb(158, 153, 153);
@@ -81,7 +83,7 @@ body {
             margin: 0 0 2px 0;
           }
           input {
-            font-size: 1rem;
+            font-size: .8rem;
             width: 220px;
           }
         }
@@ -103,6 +105,21 @@ body {
         }
       }
     }
+    // .register {
+    //   padding: 3rem;
+    //   margin: 13rem;
+    //   form {
+    //     fieldset {
+    //       legend {
+    //         width: 80%;
+
+    //         input {
+    //           width: 18rem;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
     .panel {
       background-color: #eee;
       width: 97%;
@@ -175,8 +192,8 @@ body {
       margin: auto;
       color: rgb(132, 131, 131);
       .create {
-        margin:2rem ;
-        input{
+        margin: 2rem;
+        input {
           width: 15rem;
           height: 2rem;
         }
@@ -185,11 +202,12 @@ body {
         border: 1px solid #ddd;
         width: 70%;
         // color: red;
-        td, th {
+        td,
+        th {
           // border-collapse: collapse;
           border-bottom: 1px solid #ddd;
           padding: 0.6rem;
-          .action{
+          .action {
             color: #fff;
           }
         }

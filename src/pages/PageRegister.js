@@ -27,10 +27,10 @@ const PageRegister = () => {
 
   useEffect(() => {
     setFormIsValid(
-      emailIsValid &&
-        userNameIsValid &&
+      userNameIsValid &&
         firstNameIsValid &&
         secondNameIsValid &&
+        emailIsValid &&
         password1IsValid &&
         password2IsValid &&
         passwordRegister1 === passwordRegister2
@@ -83,16 +83,19 @@ const PageRegister = () => {
 
   const handlePasswordRegister1 = (e) => {
     const _passwordRegister1 = e.target.value;
-    const passwordformat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordformat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     setPasswordRegister1(_passwordRegister1);
     setPassword1IsValid(passwordformat.test(_passwordRegister1));
   };
 
   const handlePasswordRegister2 = (e) => {
     const _passwordRegister2 = e.target.value;
-    const passwordformat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordformat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     setPasswordRegister2(_passwordRegister2);
-    setPassword2IsValid(passwordformat.test(_passwordRegister2) && _passwordRegister2 === passwordRegister1);
+    setPassword2IsValid(
+      passwordformat.test(_passwordRegister2) &&
+        _passwordRegister2 === passwordRegister1
+    );
   };
 
   const handleRegisterButton = async (e) => {
@@ -132,7 +135,7 @@ const PageRegister = () => {
   };
 
   return (
-    <div>
+    <div className="register">
       {userInGroup("loggedOutUsers") && (
         <form>
           <fieldset>
@@ -142,21 +145,21 @@ const PageRegister = () => {
               value={userNameRegister}
               valueHandler={handleUserNameRegister}
               isValid={userNameIsValid}
-              label={'Username'}
+              label={"Username"}
             />
 
             <NameValidation
               value={firstNameRegister}
               valueHandler={handleFirstNameRegister}
               isValid={firstNameIsValid}
-              label={'Firstname'}
+              label={"Firstname"}
             />
 
             <NameValidation
               value={secondNameRegister}
               valueHandler={handleSecondNameRegister}
               isValid={secondNameIsValid}
-              label={'Lastname'}
+              label={"Lastname"}
             />
 
             <EmailValidation
