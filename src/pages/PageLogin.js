@@ -7,7 +7,7 @@ import { AiFillEye } from "react-icons/ai";
 const PageLogin = () => {
   const {
     setCurrentUser,
-    currentUserIsInGroup,
+    userInGroup,
     passwordInputType,
     handleShowPasswordButtonRegister,
   } = useContext(AppContext);
@@ -52,7 +52,7 @@ const PageLogin = () => {
 
   return (
     <div>
-      {currentUserIsInGroup("loggedOutUsers") && (
+      {userInGroup("loggedOutUsers") && (
         <form>
           <fieldset>
             <legend>Login</legend>

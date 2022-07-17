@@ -8,7 +8,7 @@ export const AppProvider = ({ children }) => {
   });
 
   
-  const currentUserIsInGroup = (accessGroup) => {
+  const userInGroup = (accessGroup) => {
     const accessGroupArray = currentUser.accessGroups
       .split(",")
       .map((m) => m.trim());
@@ -19,7 +19,7 @@ export const AppProvider = ({ children }) => {
       value={{
         currentUser,
         setCurrentUser,
-        currentUserIsInGroup,
+        userInGroup,
   
       }}
     >

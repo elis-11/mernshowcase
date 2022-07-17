@@ -3,7 +3,7 @@ import AppContext from "../AppContext.js";
 import { useNavigate } from "react-router-dom";
 
 const PageLogout = () => {
-  const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
+  const { setCurrentUser, userInGroup } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleLogoutButton = async (e) => {
@@ -24,7 +24,7 @@ const PageLogout = () => {
 
   return (
     <div>
-      {currentUserIsInGroup("loggedInUsers") && (
+      {userInGroup("loggedInUsers") && (
         <div><p>Are you sure?</p>
           <button onClick={handleLogoutButton}>Logout</button>
         </div>

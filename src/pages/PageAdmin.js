@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import AppContext from "../AppContext.js";
 
 const PageAdmin = () => {
-  const { currentUserIsInGroup } = useContext(AppContext);
+  const { userInGroup } = useContext(AppContext);
   const [notYetApprovedUsers, setNotYetApprovedUsers] = useState([]);
   const [showAllUsers, setShowAllUsers] = useState([]);
 
@@ -78,7 +78,7 @@ const PageAdmin = () => {
 
   return (
     <div>
-      {currentUserIsInGroup("admin") && (
+      {userInGroup("admin") && (
         <div className="panel">
           <h3>Content Editor Section:</h3>
           ShowAllUsers:
@@ -91,7 +91,7 @@ const PageAdmin = () => {
         </div>
       )}
 
-      {currentUserIsInGroup("admin") && (
+      {userInGroup("admin") && (
         <div className="panel">
           <h3>Admin Section:</h3>
           <h4>{notYetApprovedUsers.length} Users to Approve</h4>
@@ -111,7 +111,7 @@ const PageAdmin = () => {
                     <td>{user.firstName}</td>
                     <td>{user.lastName}</td>
                     <td>{user.username}</td>
-                    <td>
+                    <td className="buttons">
                       <button
                         onClick={() => handle_approveUserButton(user._id)}
                       >
@@ -119,7 +119,7 @@ const PageAdmin = () => {
                       </button>
                       <div>
                         <button onClick={() => handle_deleteuser(user._id)}>
-                          Delete users
+                          Delete
                         </button>
                       </div>
                     </td>

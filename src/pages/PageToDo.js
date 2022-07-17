@@ -63,57 +63,74 @@ const ToDo = () => {
   }
 
   return (
-    <div id="todo-list">
-      <form onSubmit={handleSubmit}>
+    <div id="todo-list" className="todo">
+      <form onSubmit={handleSubmit} className="create">
         <input
           type="text"
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
           placeholder="Input Task"
         />
-
         <label type="submit">
           <GrFormAdd />
         </label>
       </form>
-      {todos.map((todo) => (
-        <div key={todo.id} className="todo">
-          <div className="todo-text">
-            <input
-              type="checkbox"
-              id="completed"
-              checked={todo.completed}
-              onChange={() => toggleComplete(todo.id)}
-            />
-            {todo.id === todoEditing ? (
-              <input
-                type="text"
-                placeholder={todo.text + " Edit"}
-                // placeholder={todo.text}
-                // placeholder={"Edit" + todo.text}
-                onChange={(e) => setEditingText(e.target.value)}
-              />
-            ) : (
-              <div>{todo.text}</div>
-            )}
-          </div>
-          <div className="todo-actions">
-            {todo.id === todoEditing ? (
-              <label onClick={() => submitEdits(todo.id)}>
-                <AiFillCheckCircle />
-              </label>
-            ) : (
-              <label onClick={() => setTodoEditing(todo.id)}>
-                <AiFillEdit />
-              </label>
-            )}
-
-            <label onClick={() => deleteTodo(todo.id)}>
-              <BsFillTrashFill />
-            </label>
-          </div>
-        </div>
-      ))}
+      <table className="tasks ">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Todo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {todos.map((todo) => (
+            <tr key={todo.id} className="text">
+              <td></td>
+              <td className="todo-text">
+                <input
+                  type="checkbox"
+                  id="completed"
+                  checked={todo.completed}
+                  onChange={() => toggleComplete(todo.id)}
+                />
+              </td>
+              <td>
+                {todo.id === todoEditing ? (
+                  <input
+                    type="text"
+                    placeholder={todo.text + " Edit"}
+                    autofocus
+                    // placeholder={todo.text}
+                    // placeholder={"Edit" + todo.text}
+                    onChange={(e) => setEditingText(e.target.value)}
+                  />
+                ) : (
+                  <div>{todo.text}</div>
+                )}
+              </td>
+              <td className="action">
+                {todo.id === todoEditing ? (
+                  <label onClick={() => submitEdits(todo.id)}>
+                    <AiFillCheckCircle />
+                  </label>
+                ) : (
+                  <label onClick={() => setTodoEditing(todo.id)}>
+                    <AiFillEdit />
+                  </label>
+                )}
+              </td>
+              <td>
+                <label onClick={() => deleteTodo(todo.id)}>
+                  <BsFillTrashFill />
+                </label>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
@@ -123,11 +140,11 @@ export const Todoes = () => {
     <div>
       <div className="layer-headline">
         <h1>Personal Taskmanager Localstorage</h1>
-        </div>
-        <div className="layer-todo">
-          <div className="todo-app">
+      </div>
+      <div className="layer-todo">
+        <div className="todo-app">
           <ToDo />
-          </div>
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import EmailValidation from "../components/formValidation/EmailValidation";
 import NameValidation from "../components/formValidation/NameValidation";
 
 const PageRegister = () => {
-  const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
+  const { setCurrentUser, userInGroup } = useContext(AppContext);
   const navigate = useNavigate();
 
   const [userNameRegister, setUserNameRegister] = useState("");
@@ -133,7 +133,7 @@ const PageRegister = () => {
 
   return (
     <div>
-      {currentUserIsInGroup("loggedOutUsers") && (
+      {userInGroup("loggedOutUsers") && (
         <form>
           <fieldset>
             <legend>Register</legend>

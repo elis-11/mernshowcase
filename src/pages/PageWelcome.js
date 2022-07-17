@@ -2,18 +2,18 @@ import { useContext } from "react";
 import AppContext from "../AppContext";
 
 const PageWelcome = () => {
-  const { currentUserIsInGroup } = useContext(AppContext);
+  const { userInGroup } = useContext(AppContext);
     const { currentUser} = useContext(AppContext);
 
   return (
     <div>
 
       <div>
-        {currentUserIsInGroup("loggedOutUsers") && (
+        {userInGroup("loggedOutUsers") && (
           <div className="panel">Welcome to this site.</div>
         )}
 
-        {currentUserIsInGroup("member") && (
+        {userInGroup("member") && (
           <div className="panel">
             <h3>{currentUser.firstName} {currentUser.lastName},</h3>
             <p>
@@ -25,7 +25,7 @@ const PageWelcome = () => {
           </div>
         )}
 
-        {currentUserIsInGroup("notApprovedUsers") && (
+        {userInGroup("notApprovedUsers") && (
           <div className="panel">
             <h3>Thank you for registering!</h3>
             An administrator will approve your account as soon as possible.
